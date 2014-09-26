@@ -1,7 +1,7 @@
 DS.IndexedDBSerializer = DS.JSONSerializer.extend({
   serializeHasMany: function(record, json, relationship) {
     var key = relationship.key,
-        relationshipType = DS.RelationshipChange.determineRelationshipType(record.constructor, relationship);
+        relationshipType = record.constructor.determineRelationshipType(relationship);
 
     if (relationshipType === 'manyToNone' ||
         relationshipType === 'manyToMany' ||
